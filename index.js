@@ -10,13 +10,13 @@ const corsOptions = {
 };
 
 //errors
-const errorHandlerMiddleware = require("../errors/errorHandlerMiddleware");
+const errorHandlerMiddleware = require("./errors/errorHandlerMiddleware");
 
 //routes
-const routerUser = require("../routes/user");
+const routerUser = require("./routes/user");
 
 //db
-const connectDB = require("../db/connect.js");
+const connectDB = require("./db/connect.js");
 
 //midleware
 app.use(cors(corsOptions)); // Use this after the variable declaration
