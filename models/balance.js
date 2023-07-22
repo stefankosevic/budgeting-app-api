@@ -17,13 +17,13 @@ const BalanceSchema = new mongoose.Schema({
     type: String,
     required: [true, "userId je obavezan"],
   },
-  balanceId: {
-    type: String,
-    required: [true, "balanceId je obavezan"],
-  },
   type: {
     type: String,
     required: [true, "Type je obavezan"],
+  },
+  timestamp: {
+    type: Date,
+    default: Date.now,
   },
 });
 

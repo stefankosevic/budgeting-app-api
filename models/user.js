@@ -17,7 +17,7 @@ const UserSchema = new mongoose.Schema({
   balances: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "balance", // This tells Mongoose that the 'books' array will contain references to the 'Book' model
+      ref: "balance",
     },
   ],
 });
