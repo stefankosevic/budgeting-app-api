@@ -107,8 +107,10 @@ const getRecentBalances = asyncWrapper(async (req, res, next) => {
 
 const scanCode = asyncWrapper(async (req, res, next) => {
   const params = req.query;
+  console.log(params);
   try {
     const response = await axios.get(params.url);
+    console.log(response);
     const htmlData = response.data;
 
     const $ = cheerio.load(htmlData);
