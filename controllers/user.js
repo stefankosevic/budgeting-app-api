@@ -79,11 +79,12 @@ const deleteBalance = asyncWrapper(async (req, res, next) => {
 });
 
 const getAllBalances = asyncWrapper(async (req, res, next) => {
-  const incomes = await Balance.find().or([
+  const params = req.query;
+  const incomes = await Balance.find({ userId: params.userId }).or([
     { type: "Monthly Income" },
     { type: "One Time Income" },
   ]);
-  const expenses = await Balance.find().or([
+  const expenses = await Balance.find({ userId: params.userId }).or([
     { type: "Monthly Expense" },
     { type: "One Time Expense" },
   ]);
@@ -94,7 +95,10 @@ const getAllBalances = asyncWrapper(async (req, res, next) => {
 });
 
 const getRecentBalances = asyncWrapper(async (req, res, next) => {
-  const balances = await Balance.find().sort({ timestamp: -1 });
+  const params = req.query;
+  const balances = await Balance.find({ userId: params.userId }).sort({
+    timestamp: -1,
+  });
 
   res
     .status(200) //created
